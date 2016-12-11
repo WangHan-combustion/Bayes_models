@@ -7,16 +7,18 @@ data {
 }
 
 parameters{
-  real b0;
-  real b1;
+  real b0;	// intercept
+  real b1;	// slope
   real<lower=0> sigma;
 }
 
 
 model{
+  // priors
   b0 ~ normal(140, 100);  
   b1 ~ normal(0, 100);  
   sigma ~ normal(0, 100);  
 
+  // likelihood
   time ~ normal(b0 + b1*dose, sigma);
 }
