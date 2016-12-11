@@ -1,12 +1,12 @@
 library(rstan)
-library(labstats) # data set from here
 library(lattice)
 
 options(mc.cores = parallel::detectCores())
 
 
 # select data from the first experiment only
-bennett <- subset(Bennett1964, subset=experiment==1, -experiment)
+bennett <- read.delim("Bennett1964.txt")
+bennett <- subset(bennett, subset=experiment==1, -experiment)
 
 # make litter a factor
 bennett$litter <- factor(bennett$litter)
@@ -30,7 +30,7 @@ d <- list(N = nrow(bennett),
           weight = bennett$weight)
           
 
-m1 <- stan("RBD1.stan", iter=5000,  seed=123, 
+m1 <- stan("RBD1.stan", iter=10000,  seed=123, 
            data=d)
 
 m1
