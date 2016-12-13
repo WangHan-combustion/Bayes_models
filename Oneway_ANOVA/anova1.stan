@@ -32,5 +32,5 @@ generated quantities{
   diff80_v_0 = b[2] - b[1];     // lowest vs. control
   diff160_v_0 = b[3] - b[1];    // medium vs. control
   diff240_v_0 = b[4] - b[1];    // highest vs. control
-  diff240_v_80 = b[4] - b[1];   // lowest vs. highest
+  diff240_v_80 = b[4] - b[2];   // lowest vs. highest
 }
